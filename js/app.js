@@ -1,4 +1,4 @@
-var navbarContent = [
+const navbarContent = [
     {
         title:"ABOUT US" ,
          link:"about/"
@@ -18,38 +18,18 @@ var navbarContent = [
     
 ]
 
-var navbar = document.querySelector(".navbar")
+const navbar = document.querySelector(".navbar")
 
-navbarContent.forEach(function (item) {
-  var linkEl = document.createElement("a")
+navbarContent.forEach ((item) => {
+  const linkEl = document.createElement("a")
   linkEl.textContent = item.title
     linkEl.setAttribute("href",`/${item.link}`)
-    navbar.append(linkEl) }
-)
-
-// var tableObj={
-    // Quantity:['5-10', '5-10' , '5-10' , '5-10', '5-10' , '5-10' , '5-10', '5-10', '5-10'],
-    // Price:['2000 сом' , '2000 сом' , '2000 сом', '2000 сом', '2000 сом' ,'2000 сом' ,'2000 сом', '2000 сом' ,'2000 сом']
-// }
-// var tableQuantity = document.querySelector(".tableQuantity")
-// var tablePrice = document.querySelector(".tablePrice")
+    navbar.append(linkEl) })
 
 
-// function tableMaker(arr,tableRow){
-//     arr.forEach(function(item){
-//     var tCell = document.createElement("td")
-//     tCell.textContent= item
-//     tableRow.append(tCell)
-// })
-// }
-// for (var key in tableObj){
-//     tableMaker(tableObj[key], key==='quality'? tableQuantity:tablePrice)
-// }
-
-
-var tableObj = {
+const tableObj = {
     table1:{
-        Quantity:['5-10', '5-10' , '5-10' , '5-10', '5-10' , '5-10' , '5-10', '5-10', '5-10'],
+        Quantity:['Количество', '5-10' , '5-10' , '5-10', '5-10' , '5-10' , '5-10', '5-10', '5-10'],
         Price:['2000 сом' , '2000 сом' , '2000 сом', '2000 сом', '2000 сом' ,'2000 сом' ,'2000 сом', '2000 сом' ,'2000 сом']
     },
     table2:{
@@ -62,44 +42,29 @@ var tableObj = {
     }
 }
 
-var tableWrapper = document.querySelector('.tableWrapper')
+const tableWrapper = document.querySelector('.tableWrapper')
 
 function tableMaker(tableData){
-  var table = document.createElement('table')
-
-//   console.log(tableData)
-
-  var tableHead = document.createElement('thead')
-  var tableHeadTitle = document.createElement('th')
-  var tbody = document.createElement('tbody')
+  const table = document.createElement('table')
+  table.classList.add("table")
+  const tableHead = document.createElement('thead')
+  const tableHeadTitle = document.createElement('th')
   tableHeadTitle.textContent = 'Худи стандарт'
   tableHead.append(tableHeadTitle)
-
-  var tableBody = document.createElement('tbody')
-
-//   // quantity
-
-//   var tableQuantity=document.createElement('tr')
-//   var tableQuantityTitle=document.createElement('th')
-//   tableQuantityTitle.textContent='Количество'
-//   tableQuantity.append(tableQuantityTitle)
-
-// //price
-//   var tablePrice=document.createElement('tr')
+  const tableBody = document.createElement('tbody')
 
 
-//   //content
-//   tableData.Quantity?.forEach(function(item){
-//     var tableCell=document.createElement('td')
-//     tableCell.textContent=item
-//     tableQuantity.append(tableCell)
-//   })
 
+for(const row in tableData){
 
-//   tableBody.append(tableQuantity)
+    const tableRow=document.createElement('tr')
+    tableData[row].forEach((item) => {
 
-for(var row in tableData){
-    console.log(tableData[row])
+     const tableCell=document.createElement('td')
+    tableCell.textContent=item
+    tableRow.append(tableCell)
+})
+tableBody.append(tableRow)
 }
 
 
@@ -109,8 +74,16 @@ for(var row in tableData){
 
   tableWrapper.append(table)
 }
-for(var key in tableObj){
+for(const key in tableObj){
     tableMaker(tableObj[key])
 }
 
+// setTimeout(()=>{
+//     console.log('hello')
+// },2000)
 
+//  const interval= setInterval(()=>{
+//     console.log('hello world')
+// },1000)
+
+// setTimeout(()=>{clearInterval(interval)},5000)

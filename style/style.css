@@ -9,7 +9,7 @@ background-repeat: no-repeat;
 background-position-x: center;
 background-size: cover;
 height: 1000px;
-/* background-color: black; */
+background-color: black;
 
 }
 .container{
@@ -171,13 +171,19 @@ max-width: 1280px;
 .MakeCall:hover{
     background-color: gray;
 }
-
-
-
-
-
-
-.Table{
-    margin-top: 150px;
-    /* color: aliceblue; */
+.table{
+    color: black;
+    width: 1000px;
+    height: 100px;
+    border: 2px solid;
+    border-color: aliceblue;
+    padding: 10px;
+    border-radius: 5px;
+    background-color:lightgray;
+}
+.TitleTable{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    
 }
